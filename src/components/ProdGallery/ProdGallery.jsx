@@ -6,17 +6,14 @@ import { StyledGallery } from "./ProdGallery.styled"
 import { useParams } from "react-router-dom"
 
 export const ProdGallery = () => {
-    // const activeShopID = useSelector(state => state.shops.activeShop)
-    // const shops = useSelector(state => state.shops.shops)
+
     const products = useSelector(state => state.products.products)
     const {id} = useParams()
-    
-    // const validShop = shops.find(item => item._id === id)
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-           id && dispatch(getProductsThunk(id))
+        id && dispatch(getProductsThunk(id))
     }, [dispatch, id])
 
     return (

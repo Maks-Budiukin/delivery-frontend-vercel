@@ -39,9 +39,10 @@ export const Register = () => {
     
     const handleSubmit = async (event) => {
       event.preventDefault();
-    
+
       const {error} = await dispatch(regThunk({ name, email, password, phone, address }));
-      !error && dispatch(loginThunk({email, password}))
+      !error && dispatch(loginThunk({ email, password }))
+      
   }
 
   return (
