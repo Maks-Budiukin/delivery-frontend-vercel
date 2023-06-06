@@ -8,15 +8,15 @@ export const StyledNotFound = styled.div`
   background: url("https://timeweb.com/ru/community/article/67/67d62d1e0bc27de113cc0e25239705e2.png");
   background-position: center;
   background-size: cover;
-  max-width: 768px;
-  height: 100vh;
+  max-width: 600px;
+  height: 80vh;
 `;
 
 export const StyledButton = styled(NavLink)`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 10%;
+  bottom: 0;
   display: block;
   margin-left: auto;
   margin-right: auto;
