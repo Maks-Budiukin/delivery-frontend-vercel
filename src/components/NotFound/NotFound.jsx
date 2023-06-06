@@ -2,7 +2,7 @@ import { StyledNotFound, StyledButton } from "./NotFound.styled"
 
 export const NotFound = () => {
     return(<><StyledNotFound >
-            <StyledButton>Go back!</StyledButton>
+            <StyledButton to={"/"}>Go back!</StyledButton>
         </StyledNotFound></>)
 }
 
