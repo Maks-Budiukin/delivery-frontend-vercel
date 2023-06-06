@@ -16,6 +16,7 @@ import { RestrictedRoute } from "./Routes/RestrictedRoute";
 import { PrivateRoute } from "./Routes/PrivateRoute";
 
 import { Toaster } from 'react-hot-toast';
+import { NotFound } from 'components/NotFound/NotFound';
 
 function App() {
 
@@ -32,7 +33,7 @@ function App() {
     <div><Toaster position="top-center" reverseOrder={false} /></div>
     <Routes>
         <Route path="/" element={<Layout />}>
-        <Route index path="/" element={<Shop />} /> 
+        <Route index  element={<Shop />} /> 
           <Route path="/:id" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<PrivateRoute component={Orders} redirectTo={'/'} />} />
@@ -40,6 +41,7 @@ function App() {
           <Route path="/login" element={<RestrictedRoute component={Login} redirectTo={'/'} />} />
           <Route path="/register" element={<RestrictedRoute component={Register} redirectTo={'/'} />} />
       </Route>
+          <Route path="*" element={<NotFound />} />
     </Routes>
   </>);
 }

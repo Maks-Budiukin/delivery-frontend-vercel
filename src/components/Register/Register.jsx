@@ -83,7 +83,6 @@ export const Register = () => {
             minLength={6}
             required
                   />
-            
           <label htmlFor={phoneInpudId}>Phone </label>    
           <input
             type="tel"
@@ -97,7 +96,6 @@ export const Register = () => {
             onChange={onInputChange}
             required
               />
-          
           <label htmlFor={addressInpudId}>Address </label>
           <input
             type="text"
@@ -106,9 +104,7 @@ export const Register = () => {
             title="Your address for deliveries."
             value={address}
             onChange={onInputChange}
-            
               />
-        
           <LinkBlock>
             <LinkLabel>Already registered? </LinkLabel>
             <StyledLink to="/login">Log IN!</StyledLink>

@@ -80,7 +80,7 @@ export const CartUserForm = () => {
       <label htmlFor={phoneInpudId}>Number </label>    
       <input
             type="tel"
-            name="phone"
+            name="number"
             id={phoneInpudId}
             pattern="[+]38([0-9]{10})"
             title="Phone number must be digits in format +38XXXXXXXXXX (NO DASHES!)"
