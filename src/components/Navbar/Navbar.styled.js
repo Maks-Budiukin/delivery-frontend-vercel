@@ -9,6 +9,7 @@ export const StyledSection = styled.section`
 export const StyledLink = styled(NavLink)`
   display: block;
   width: 120px;
+  color: #000;
   background-color: #fff;
   padding: 5px 10px;
   margin-right: 24px;
