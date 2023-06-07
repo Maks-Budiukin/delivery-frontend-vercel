@@ -58,7 +58,7 @@ export const Navbar = () => {
         color='skyblue'
         ref={ref}
                 loaderSpeed={300}
-                height={3}
+                height={4}
       />
     </div>
     </>)
