@@ -14,6 +14,10 @@ export const ShopButton = styled(NavLink)`
 `;
 
 export const ShopButtonContainer = styled.div`
+  @media screen and (max-width: 890px) {
+    width: 100px;
+    border-radius: 50%;
+  }
   display: flex;
   align-items: center;
   width: 250px;

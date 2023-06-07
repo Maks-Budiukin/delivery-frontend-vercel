@@ -1,7 +1,14 @@
+// @media screen and (min-width: 900px) {
+//   article {
+//     padding: 1rem 3rem;
+//   }
+// }
+
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledSection = styled.section`
+  position: relative;
   border-bottom: 1px solid #c0c0c03e;
   color: #c0c0c03e;
 `;
@@ -75,7 +82,7 @@ export const NavList = styled.ul`
 `;
 
 export const NavBar = styled.nav`
-  position: relative;
+  /* position: relative; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,7 +93,7 @@ export const LogoLink = styled(NavLink)`
 `;
 
 export const Logo = styled.img`
-  width: 100%;
+  width: 150px;
   display: block;
 `;
 

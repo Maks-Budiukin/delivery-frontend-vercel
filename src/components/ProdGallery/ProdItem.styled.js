@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 250px;
-  height: 240px;
+  flex-basis: 250px;
+  /* height: 240px; */
   border-radius: 6px;
   overflow: hidden;
   box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const ImageThumb = styled.div`
   width: 100%;
-  height: 160px;
+  max-height: 160px;
   overflow: hidden;
   display: flex;
   justify-content: center;

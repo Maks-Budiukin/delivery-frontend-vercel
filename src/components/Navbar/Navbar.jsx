@@ -6,6 +6,10 @@ import { StyledSection, StyledLink, StyledButton, NavList, NavBar, LogoLink, Log
 import { useEffect, useRef } from "react"
 import LoadingBar from "react-top-loading-bar"
 
+import { useMediaQuery } from 'react-responsive'
+
+import { BurgerMenu } from "components/BurgerMenu/BurgerMenu"
+
 export const Navbar = () => {
 
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
@@ -20,8 +24,12 @@ export const Navbar = () => {
     const isProductsLoading = useSelector(state => state.products.isLoading)
   
     const globadLoading = isAuthLoading || isShopsLoading || isProductsLoading;
-
     const ref = useRef(null);
+  
+        const isDesktop = useMediaQuery({ query: '(min-width: 890px)' })
+        const isTablet = useMediaQuery({ query: '(max-width: 889px)' })
+        const isMobile = useMediaQuery({ query: '(max-width: 479px)' })
+
 
   useEffect(() => {
     globadLoading ? ref.current.continuousStart(30, 10) : ref.current.complete();
@@ -32,8 +40,7 @@ export const Navbar = () => {
 
     return (<><StyledSection>
         <NavBar>
-
-            <LogoLink to={activeShop ? `/${activeShop}` : "/"}>
+            {isDesktop && (<><LogoLink to={activeShop ? `/${activeShop}` : "/"}>
                 <Logo src="./logo.jpg"></Logo>
             </LogoLink>
 
@@ -48,7 +55,14 @@ export const Navbar = () => {
             <StyledButton type="button" onClick={() => dispatch(logoutThunk())}>Logout</StyledButton>
             : <StyledLink to="/register">Auth</StyledLink>
                 }
-                </AuthBlock>
+                </AuthBlock></>)}
+            {isTablet && <><LogoLink to={activeShop ? `/${activeShop}` : "/"}>
+                <Logo src="./logo.jpg"></Logo>
+        </LogoLink>
+        <div><BurgerMenu></BurgerMenu></div></>}
+        
+                
+
         </NavBar>
     </StyledSection>
     
