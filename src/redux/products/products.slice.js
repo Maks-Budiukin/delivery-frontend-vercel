@@ -6,6 +6,7 @@ import {
   RemoveFromCartThunk,
   changeItemCountThunk,
   ClearCartThunk,
+  createOrderThunk,
 } from "./products.thunk";
 
 const productsSlice = createSlice({
@@ -14,11 +15,16 @@ const productsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(getProductsThunk.pending, (state) => state)
+      .addCase(getProductsThunk.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(getProductsThunk.fulfilled, (state, { payload }) => {
         state.products = [...payload.products];
+        state.isLoading = false;
       })
-      .addCase(getProductsThunk.rejected, (state, { payload }) => state)
+      .addCase(getProductsThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+      })
 
       .addCase(AddToCartThunk.pending, (state) => state)
       .addCase(AddToCartThunk.fulfilled, (state, { payload }) => {
@@ -47,7 +53,17 @@ const productsSlice = createSlice({
       .addCase(changeItemCountThunk.fulfilled, (state, { payload }) => {
         state.cart = payload;
       })
-      .addCase(changeItemCountThunk.rejected, (state, { payload }) => {});
+      .addCase(changeItemCountThunk.rejected, (state, { payload }) => {})
+
+      .addCase(createOrderThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(createOrderThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+      })
+      .addCase(createOrderThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+      });
   },
 });
 

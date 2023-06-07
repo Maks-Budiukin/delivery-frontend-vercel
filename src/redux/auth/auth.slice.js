@@ -14,11 +14,19 @@ const authSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(regThunk.pending, (state) => state)
-      .addCase(regThunk.fulfilled, (state, { payload }) => state)
-      .addCase(regThunk.rejected, (state, { payload }) => state)
+      .addCase(regThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(regThunk.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+      })
+      .addCase(regThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+      })
 
-      .addCase(loginThunk.pending, (state) => state)
+      .addCase(loginThunk.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(loginThunk.fulfilled, (state, { payload }) => {
         state.user.id = payload._id;
         state.user.name = payload.name;
@@ -27,8 +35,11 @@ const authSlice = createSlice({
         state.user.address = payload.address;
         state.token = payload.token;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
-      .addCase(loginThunk.rejected, (state, { payload }) => state)
+      .addCase(loginThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+      })
 
       .addCase(logoutThunk.pending, (state) => state)
       .addCase(logoutThunk.fulfilled, (state) => {
@@ -58,9 +69,12 @@ const authSlice = createSlice({
         state.isRefreshing = false;
       })
 
-      .addCase(getOrdersThunk.pending, (state) => state)
+      .addCase(getOrdersThunk.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(getOrdersThunk.fulfilled, (state, { payload }) => {
         state.user.orders = [...payload];
+        state.isLoading = false;
       })
       .addCase(getOrdersThunk.rejected, (state, { payload }) => state);
   },

@@ -8,11 +8,16 @@ const shopsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(getShopsThunk.pending, (state) => state)
+      .addCase(getShopsThunk.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(getShopsThunk.fulfilled, (state, { payload }) => {
         state.shops = [...payload.shops];
+        state.isLoading = false;
       })
-      .addCase(getShopsThunk.rejected, (state, { payload }) => state)
+      .addCase(getShopsThunk.rejected, (state, { payload }) => {
+        state.isLoading = false;
+      })
 
       .addCase(setActiveShopThunk.pending, (state) => state)
       .addCase(setActiveShopThunk.fulfilled, (state, { payload }) => {

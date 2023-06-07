@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { refreshThunk } from "redux/auth/auth.thunk";
 import { Route, Routes } from "react-router-dom";
@@ -15,36 +15,23 @@ import { Register } from 'components/Register/Register';
 import { RestrictedRoute } from "./Routes/RestrictedRoute";
 import { PrivateRoute } from "./Routes/PrivateRoute";
 
-import LoadingBar from 'react-top-loading-bar'
-
 import { Toaster } from 'react-hot-toast';
 import { NotFound } from 'components/NotFound/NotFound';
 
 function App() {
-    const [progress, setProgress] = useState(0)
 
-    const dispatch = useDispatch();
-    const token = useSelector(state => state.auth.token);
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.auth.token);
 
   useEffect(() => {
     if (token) {
       dispatch(refreshThunk());
     }
-  }, [dispatch, token])
+
+  }, [dispatch, token ])
   
   return (<>
     <div><Toaster position="top-center" reverseOrder={false} /></div>
-    {/* <div>
-      <LoadingBar
-        color='skyblue'
-        progress={progress}
-        onLoaderFinished={() => setProgress(0)}
-      />
-      <button onClick={() => setProgress(progress + 10)}>Add 10%</button>
-      <button onClick={() => setProgress(progress + 20)}>Add 20%</button>
-      <button onClick={() => setProgress(100)}>Complete</button>
-      <br />
-    </div> */}
     <Routes>
         <Route path="/" element={<Layout />}>
         <Route index path="/" element={<Shop />} /> 

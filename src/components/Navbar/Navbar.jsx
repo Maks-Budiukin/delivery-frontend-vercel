@@ -3,6 +3,8 @@ import { logoutThunk } from "redux/auth/auth.thunk"
 import { ClearCartThunk } from "redux/products/products.thunk"
 
 import { StyledSection, StyledLink, StyledButton, NavList, NavBar, LogoLink, Logo, StyledClearButton, AuthBlock} from "./Navbar.styled"
+import { useEffect, useRef } from "react"
+import LoadingBar from "react-top-loading-bar"
 
 export const Navbar = () => {
 
@@ -12,7 +14,23 @@ export const Navbar = () => {
 
     const activeShop = useSelector(state => state.shops.activeShop)
 
-    return (<StyledSection>
+
+    const isAuthLoading = useSelector(state => state.auth.isLoading)
+    const isShopsLoading = useSelector(state => state.shops.isLoading)
+    const isProductsLoading = useSelector(state => state.products.isLoading)
+  
+    const globadLoading = isAuthLoading || isShopsLoading || isProductsLoading;
+
+    const ref = useRef(null);
+
+  useEffect(() => {
+    globadLoading ? ref.current.continuousStart(30, 10) : ref.current.complete();
+  }, [globadLoading])
+
+
+
+
+    return (<><StyledSection>
         <NavBar>
 
             <LogoLink to={activeShop ? `/${activeShop}` : "/"}>
@@ -32,5 +50,16 @@ export const Navbar = () => {
                 }
                 </AuthBlock>
         </NavBar>
-    </StyledSection>)
+    </StyledSection>
+    
+    
+    <div>
+      <LoadingBar
+        color='skyblue'
+        ref={ref}
+                loaderSpeed={300}
+                height={3}
+      />
+    </div>
+    </>)
 }

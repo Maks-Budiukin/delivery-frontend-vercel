@@ -6,14 +6,13 @@ import { OrdersList } from "components/OrdersList/OrdersList";
 
 export const Orders = () => {
     const userID = useSelector(state => state.auth.user.id)
-    const isRefreshing = useSelector(state => state.auth.isRefreshing)
-    
+    const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
     const dispatch = useDispatch();
 
     useEffect(() => {
-        !isRefreshing && dispatch(getOrdersThunk(userID))
+        isLoggedIn && dispatch(getOrdersThunk(userID))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [dispatch, isRefreshing])
+    }, [dispatch, isLoggedIn])
  
     return (<OrdersList />)
 }
