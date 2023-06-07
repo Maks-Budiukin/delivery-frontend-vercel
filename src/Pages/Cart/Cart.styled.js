@@ -22,6 +22,7 @@ export const StyledButton = styled(NavLink)`
   font-weight: bold;
   text-align: center;
   font-size: 14px;
+  color: #000;
   background-color: #87cfeb3b;
 
   transition-property: color, background-color, border;

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const ShopButton = styled(NavLink)`
-  color: black;
+  color: #000;
   text-decoration: none;
   border: none;
   border-radius: 4px;
