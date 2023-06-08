@@ -43,3 +43,9 @@ export const StyledButton = styled(NavLink)`
     color: #fff;
   }
 `;
+
+export const StyledEmptyPicture = styled.img`
+  width: 200px;
+  margin: 24px;
+  transform: translateX(-10px);
+`;
