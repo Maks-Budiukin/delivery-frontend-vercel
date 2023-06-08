@@ -63,9 +63,6 @@ export const CounterInput = styled.input`
   border-left: none;
   border-right: none;
   margin: 2px;
-  /* appearance: none; */
-  /* -webkit-appearance: none;
-  -moz-appearance: textfield; */
 
   &:focus {
     outline: none;

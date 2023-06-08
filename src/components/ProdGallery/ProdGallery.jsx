@@ -24,6 +24,9 @@ export const ProdGallery = () => {
             <SpaceFiller />
             <SpaceFiller />
             <SpaceFiller />
+            <SpaceFiller />
+            <SpaceFiller />
+            <SpaceFiller />
         </StyledGallery>
         )
 }

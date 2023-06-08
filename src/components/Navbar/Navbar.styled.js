@@ -1,9 +1,3 @@
-// @media screen and (min-width: 900px) {
-//   article {
-//     padding: 1rem 3rem;
-//   }
-// }
-
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -79,10 +73,15 @@ export const StyledButton = styled.button`
 export const NavList = styled.ul`
   list-style: none;
   display: flex;
+  justify-content: center;
+  @media screen and (max-width: 478px) {
+    justify-content: space-between;
+  }
+  width: 100%;
+  padding: 0 16px;
 `;
 
 export const NavBar = styled.nav`
-  /* position: relative; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,9 +98,12 @@ export const Logo = styled.img`
 
 export const StyledClearButton = styled.button`
   position: absolute;
-  transform: translate(140%, 225%);
+  right: 60px;
 
-  right: 168px;
+  @media screen and (max-width: 478px) {
+  }
+
+  transform: translate(50%, 225%);
   width: 120px;
   background-color: #fff;
   padding: 5px 10px;
@@ -127,4 +129,33 @@ export const StyledClearButton = styled.button`
 export const AuthBlock = styled.div`
   min-width: 300;
   display: flex;
+`;
+
+export const MobMenuWrapper = styled.div`
+  position: absolute;
+  top: 70px;
+  left: 0;
+  padding: 8px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+`;
+
+export const BurgerMenuWrapper = styled.div`
+  width: 36px;
+  position: relative;
+  margin-left: auto;
+`;
+
+export const MobileBurgerMenuWrapper = styled.div`
+  width: 36px;
+  position: relative;
 `;

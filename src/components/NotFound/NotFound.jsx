@@ -5,5 +5,3 @@ export const NotFound = () => {
             <StyledButton to={"/"}>Go back!</StyledButton>
         </StyledNotFound></>)
 }
-
-// style={{textAlign: "center", flexBasis: "100vw", marginLeft: "auto", marginRight: "auto", display: "flex", flexShrink: "1"}}

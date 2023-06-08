@@ -1,20 +1,38 @@
-import { slide as Menu } from 'react-burger-menu'
-import {StyledLink} from "./BurgerMenu.styled"
+import Menu from 'react-burger-menu/lib/menus/slide'
+import { logoutThunk } from "redux/auth/auth.thunk"
+import { useDispatch, useSelector } from "react-redux"
+import { StyledLink, StyledButton } from "./BurgerMenu.styled"
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const BurgerMenu = () => {
 
-    const showSettings = (event) => {
-        event.preventDefault();
-    
-    }
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    var styles = {
-  bmBurgerButton: {
-    position: 'fixed',
+  const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const activeShop = useSelector(state => state.shops.activeShop)
+
+  const closeMenu = () => {
+    setMenuOpen(true)
+  }
+
+  const onLogoutClick = () => {
+    dispatch(logoutThunk())
+    closeMenu();
+  }
+
+  const onOrdersClick = () => {
+    navigate("/orders")
+    closeMenu();
+  }
+
+  var styles = {
+    bmBurgerButton: {
+    position: 'abolute',
     width: '36px',
     height: '30px',
-    right: '8px',
-    top: '8px'
   },
   bmBurgerBars: {
     background: '#373a47'
@@ -24,51 +42,47 @@ export const BurgerMenu = () => {
   },
   bmCrossButton: {
     height: '24px',
-      width: '24px',
+    width: '24px',
     right: 180,
   },
   bmCross: {
-      background: 'skyblue',
+    background: 'skyblue',
       
   },
   bmMenuWrap: {
-      position: 'fixed',
-      top: 0,
+    position: 'fixed',
+    top: 0,
     height: '100%'
   },
   bmMenu: {
-    //   background: '#87cfeb3b',
-      display: "flex",
-      justifyContent: "center",
-      
-    // padding: '2.5em 1.5em 0',
-    // fontSize: '1.15em'
+    display: "flex",
+    justifyContent: "center",
   },
   bmMorphShape: {
     fill: '#373a47'
   },
-        bmItemList: {
-            background: '#eaeaea'
-    //   paddingTop: "16px",
-    // color: '#b8b7ad',
-    // padding: '0.8em'
-
-  },
-  bmItem: {
-    // display: 'block'
+  bmItemList: {
+    background: '#eaeaea',
+    width: '160px'
   },
   bmOverlay: {
-    background: 'rgba(0, 0, 0, 0.3)'
+    opacity: "0",
   }
 }
 
-
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [menuOpen])
 
     return (
-       <Menu right styles={styles} itemListElement="div" width={ 160 }>
-        <StyledLink id="shop" className="menu-item" to="/">Shop</StyledLink>
-        <StyledLink id="cart" className="menu-item" to="/cart">Cart</StyledLink>
-        <StyledLink onClick={showSettings} className="menu-item--small" href="/">Settings</StyledLink>
+       <Menu right styles={styles} itemListElement="div" width={ 160 } isOpen={menuOpen}>
+          <StyledLink to={activeShop ? `/${activeShop}` : "/"} onClick={closeMenu}>Shop</StyledLink>
+          <StyledLink id="cart" className="menu-item" to="/cart" onClick={closeMenu}>Cart</StyledLink>
+        
+        {isLoggedIn
+          ? <><StyledButton type="button" onClick={() => onLogoutClick()}>Logout</StyledButton>
+            <StyledButton id="orders" className="menu-item" to="/orders" onClick={() => onOrdersClick()}>Orders</StyledButton></>
+          : <StyledLink to="/register" onClick={closeMenu}>Auth</StyledLink>}
       </Menu>
     )
 }

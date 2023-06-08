@@ -5,7 +5,6 @@ import {Wrapper, ImageThumb, ProdImage, ProductName, ProductInfo, ProductPrice, 
 export const ProdItem = ({ img, name, id, description, price, shop }) => {
 
     const cart = useSelector(state => state.products.cart)
-    console.log(cart)
     const added = cart.find(item => item.id === id)
 
     const dispatch = useDispatch();

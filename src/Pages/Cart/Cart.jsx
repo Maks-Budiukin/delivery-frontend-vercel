@@ -1,7 +1,7 @@
 import { CartUserForm } from "components/CartUserForm/CartUserForm";
 import { CartList } from "components/CartList/CartList";
 import { useSelector } from "react-redux";
-import { Wrapper, StyledButton, StyledEmptyPicture} from "./Cart.styled";
+import { Wrapper, StyledButton, StyledEmptyPicture, EmptyCartImageThumb, EmptyCartInfoHeader, EmptyCartInfoText} from "./Cart.styled";
 
 export const Cart = () => {
     
@@ -11,11 +11,11 @@ export const Cart = () => {
         <Wrapper>
             {cart.length > 0
             ? <><CartUserForm /> <CartList /> </>
-                : <div style={{textAlign: "center"}}>
+                : <EmptyCartImageThumb>
                     <StyledEmptyPicture src="/empty-cart.png" alt="Your Cart is empty" />
-                    <div style={{ fontSize: "24px", fontWeight: "bold" }}>Your Cart is empty</div>
-                    <div style={{ color: "silver" }}>Looks like you haven't added anything to your Cart yet.</div>
+                    <EmptyCartInfoHeader>Your Cart is empty</EmptyCartInfoHeader>
+                    <EmptyCartInfoText>Looks like you haven't added anything to your Cart yet.</EmptyCartInfoText>
                     <StyledButton to={"/"}>Go shopping!</StyledButton>
-                </div>}
+                </EmptyCartImageThumb>}
         </Wrapper>)
 }

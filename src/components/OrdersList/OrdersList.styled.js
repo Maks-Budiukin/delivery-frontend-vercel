@@ -19,4 +19,5 @@ export const Wrapper = styled.section`
 
 export const Container = styled.div`
   flex-basis: 800px;
+  padding: 0 16px;
 `;

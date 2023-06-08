@@ -44,6 +44,19 @@ export const StyledButton = styled(NavLink)`
   }
 `;
 
+export const EmptyCartImageThumb = styled.div`
+  text-align: center;
+`;
+
+export const EmptyCartInfoHeader = styled.div`
+  font-size: "24px";
+  font-weight: "bold";
+`;
+
+export const EmptyCartInfoText = styled.div`
+  color: silver;
+`;
+
 export const StyledEmptyPicture = styled.img`
   width: 200px;
   margin: 24px;

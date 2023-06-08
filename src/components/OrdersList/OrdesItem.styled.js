@@ -32,6 +32,9 @@ export const ProductItem = styled.li`
   display: flex;
   height: 24px;
   width: 400px;
+  @media screen and (max-width: 478px) {
+    width: 330px;
+  }
   justify-content: space-between;
   font-size: 16px;
   margin-left: 16px;

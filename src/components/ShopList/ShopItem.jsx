@@ -7,41 +7,35 @@ import { useMediaQuery } from 'react-responsive'
 
 export const ShopItem = ({ itemID, name, logo, enabled }) => {
 
-        const isDesktop = useMediaQuery({ query: '(min-width: 890px)' })
-        const isTablet = useMediaQuery({ query: '(max-width: 889px)' })
-        const isMobile = useMediaQuery({ query: '(max-width: 479px)' })
-
-
+    const isDesktop = useMediaQuery({ minWidth: 890 })
+    const isTablet = useMediaQuery({ minWidth: 479, maxWidth: 889 })
+    const isMobile = useMediaQuery({ maxWidth: 480 })
 
     const dispatch = useDispatch();
 
     const { id } = useParams()
 
     return (<>
-        {isDesktop && (<ShopButton style={enabled ? {} : { pointerEvents: "none", color: "silver" }} to={`/${itemID}`} onClick={() => dispatch(setActiveShopThunk(itemID))} >
-            <ShopButtonContainer style={itemID === id ? {backgroundColor: "#87cfeb3b"} : {}}>
-                <ImageThumb >
-                <Logo src={logo} alt="shop logo"></Logo>
-            </ImageThumb>
-                <ShopName>{name}</ShopName>
-            </ShopButtonContainer>
-        </ShopButton >)}
-        {/* <ShopButton style={enabled ? {} : { pointerEvents: "none", color: "silver" }} to={`/${itemID}`} onClick={() => dispatch(setActiveShopThunk(itemID))} >
-            <ShopButtonContainer style={itemID === id ? {backgroundColor: "#87cfeb3b"} : {}}>
-                <ImageThumb >
-                <Logo src={logo} alt="shop logo"></Logo>
-            </ImageThumb>
-                <ShopName>{name}</ShopName>
-            </ShopButtonContainer>
-        </ShopButton > */}
-        {isTablet && (<ShopButton style={enabled ? {} : { pointerEvents: "none", color: "silver" }} to={`/${itemID}`} onClick={() => dispatch(setActiveShopThunk(itemID))} >
-            <ShopButtonContainer style={itemID === id ? {backgroundColor: "#87cfeb3b"} : {}}>
-                <ImageThumb >
-                <Logo src={logo} alt="shop logo"></Logo>
-            </ImageThumb>
-                
-            </ShopButtonContainer>
-        </ShopButton >)}
+        {isDesktop &&
+            <ShopButton style={enabled ? {} : { pointerEvents: "none", color: "silver" }} to={`/${itemID}`} onClick={() => dispatch(setActiveShopThunk(itemID))} >
+                <ShopButtonContainer style={itemID === id ? {backgroundColor: "#87cfeb3b"} : {}}>
+                    <ImageThumb >
+                        <Logo src={logo} alt="shop logo"></Logo>
+                    </ImageThumb>
+                    <ShopName>{name}</ShopName>
+                </ShopButtonContainer>
+            </ShopButton >
+        }
+
+        {(isTablet || isMobile) &&
+            <ShopButton style={enabled ? {} : { pointerEvents: "none", color: "silver" }} to={`/${itemID}`} onClick={() => dispatch(setActiveShopThunk(itemID))} >
+                <ShopButtonContainer style={itemID === id ? {backgroundColor: "#87cfeb3b"} : {}}>
+                    <ImageThumb >
+                        <Logo src={logo} alt="shop logo"></Logo>
+                    </ImageThumb>
+                </ShopButtonContainer>
+            </ShopButton >
+        }
         
 </>)
 }

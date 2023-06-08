@@ -7,7 +7,6 @@ import { Route, Routes } from "react-router-dom";
 import { Shop } from "./Pages/Shop/Shop";
 import { Cart } from "./Pages/Cart/Cart";
 import { Orders } from "./Pages/Orders/Orders";
-import { Auth } from "./Pages/Auth/Auth";
 import { Layout } from "./components/Layout/Layout";
 import { Login } from 'components/Login/Login';
 import { Register } from 'components/Register/Register';
@@ -38,7 +37,6 @@ function App() {
           <Route path="/:id" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<PrivateRoute component={Orders} redirectTo={'/'} />} />
-          <Route path="/auth" element={<Auth />} />
           <Route path="/login" element={<RestrictedRoute component={Login} redirectTo={'/'} />} />
           <Route path="/register" element={<RestrictedRoute component={Register} redirectTo={'/'} />} />
       </Route>
