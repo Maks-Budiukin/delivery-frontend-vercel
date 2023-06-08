@@ -98,6 +98,9 @@ export const Logo = styled.img`
 `;
 
 export const StyledClearButton = styled.button`
+  position: absolute;
+  transform: translate(140%, 225%);
+
   right: 168px;
   width: 120px;
   background-color: #fff;

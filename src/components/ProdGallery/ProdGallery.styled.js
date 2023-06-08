@@ -16,3 +16,10 @@ export const StyledGallery = styled.ul`
   /* padding-top: 12px; */
   gap: 32px;
 `;
+
+export const SpaceFiller = styled.div`
+  width: 250px;
+  height: 0;
+  /* margin-left: 18px;
+  margin-right: 18px; */
+`;

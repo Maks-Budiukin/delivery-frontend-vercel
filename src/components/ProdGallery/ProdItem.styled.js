@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.li`
   flex-basis: 250px;
   /* height: 240px; */
   border-radius: 6px;

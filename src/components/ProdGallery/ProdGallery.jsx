@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { ProdItem } from "./ProdItem"
 import { useEffect } from "react"
 import { getProductsThunk } from "../../redux/products/products.thunk"
-import { StyledGallery } from "./ProdGallery.styled"
+import { StyledGallery, SpaceFiller } from "./ProdGallery.styled"
 import { useParams } from "react-router-dom"
 
 export const ProdGallery = () => {
@@ -21,7 +21,9 @@ export const ProdGallery = () => {
             {products.map(item => {
                 return (<ProdItem key={item._id} id={item._id} name={item.name} img={item.img} price={item.price} description={item.description} shop={id}></ProdItem>)
             })}
-    
+            <SpaceFiller />
+            <SpaceFiller />
+            <SpaceFiller />
         </StyledGallery>
         )
 }
