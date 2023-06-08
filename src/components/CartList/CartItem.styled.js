@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const StyledCartItem = styled.li`
-  width: 500px;
+  min-width: 500px;
+  @media screen and (max-width: 530px) {
+    flex-basis: 500px;
+    min-width: 350px;
+  }
   margin-top: 16px;
   display: flex;
 `;

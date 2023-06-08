@@ -94,15 +94,15 @@ export const CartUserForm = () => {
               />
       <label htmlFor={emailInpudId}>Email </label>
       <input
-        placeholder="email@gmail.com"
-        type="email"
-        name="email"
-        id={emailInpudId}
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-        value={email}
-        onChange={onInputChange}
-        title="Your email address"
-        required
+            placeholder="email@gmail.com"
+            type="email"
+            name="email"
+            id={emailInpudId}
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            value={email}
+            onChange={onInputChange}
+            title="Your email address"
+            required
           />
       <label htmlFor={addressInpudId}>Delivery address </label>
       <textarea
@@ -114,7 +114,7 @@ export const CartUserForm = () => {
             title="Your address for deliveries"
             value={address}
             onChange={onInputChange}
-            
+            required
               />
       <TotalSubmit>
         <TotalPrice>${total}</TotalPrice>
