@@ -7,17 +7,15 @@ import { Wrapper, StyledForm, LinkBlock, LinkLabel, StyledLink, StyledButton, He
 
 export const Register = () => {
 
-    const nameInpudId = nanoid();
-    const emailInpudId = nanoid();
-    const passwordInpudId = nanoid();
-    const phoneInpudId = nanoid();
-    const addressInpudId = nanoid();
-
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
     const [phone, setPhone] = useState("");
-    const [address, setAddress] = useState("")
+
+    const nameInpudId = nanoid();
+    const emailInpudId = nanoid();
+    const passwordInpudId = nanoid();
+    const phoneInpudId = nanoid();
   
     const dispatch = useDispatch();
 
@@ -31,8 +29,6 @@ export const Register = () => {
             break;
         case "phone": setPhone(event.target.value);
             break;
-        case "address": setAddress(event.target.value);
-            break;
         default: return;
         }
       }
@@ -40,7 +36,7 @@ export const Register = () => {
     const handleSubmit = async (event) => {
       event.preventDefault();
 
-      const {error} = await dispatch(regThunk({ name, email, password, phone, address }));
+      const {error} = await dispatch(regThunk({ name, email, password, phone }));
       !error && dispatch(loginThunk({ email, password }))
       
   }
@@ -52,6 +48,7 @@ export const Register = () => {
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor={nameInpudId}>Name </label>
           <input
+            placeholder="Jimmy Hendrix"
             type="text"
             name="name"
             id={nameInpudId}
@@ -64,6 +61,7 @@ export const Register = () => {
             
           <label htmlFor={emailInpudId}>Email </label>
           <input
+            placeholder="email@gmail.com"
             type="email"
             name="email"
             id={emailInpudId}
@@ -72,20 +70,9 @@ export const Register = () => {
             onChange={onInputChange}
             required
               />
-            
-          <label htmlFor={passwordInpudId}>Password </label>    
+            <label htmlFor={phoneInpudId}>Phone </label>    
           <input
-            type="password"
-            name="password"
-            id={passwordInpudId}
-            title="Password must be at least 6 characters long!"
-            value={password}
-            onChange={onInputChange}
-            minLength={6}
-            required
-                  />
-          <label htmlFor={phoneInpudId}>Phone </label>    
-          <input
+            placeholder="+380991112233"
             type="tel"
             name="phone"
             id={phoneInpudId}
@@ -97,15 +84,17 @@ export const Register = () => {
             onChange={onInputChange}
             required
               />
-          <label htmlFor={addressInpudId}>Address </label>
+          <label htmlFor={passwordInpudId}>Password </label>    
           <input
-            type="text"
-            name="address"
-            id={addressInpudId}
-            title="Your address for deliveries."
-            value={address}
+            type="password"
+            name="password"
+            id={passwordInpudId}
+            title="Password must be at least 6 characters long!"
+            value={password}
             onChange={onInputChange}
-              />
+            minLength={6}
+            required
+                  />
           <LinkBlock>
             <LinkLabel>Already registered? </LinkLabel>
             <StyledLink to="/login">Log IN!</StyledLink>

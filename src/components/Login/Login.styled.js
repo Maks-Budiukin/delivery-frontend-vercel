@@ -16,7 +16,8 @@ export const StyledForm = styled.form`
   width: 300px;
 
   input {
-    display: flex;
+    /* display: flex; */
+    padding: 4px;
     width: 210px;
     flex-direction: column;
     border: 1px solid silver;
@@ -26,6 +27,11 @@ export const StyledForm = styled.form`
     &:focus {
       outline: none;
       border: 1px solid skyblue;
+    }
+    &::placeholder {
+      padding-left: 4px;
+      font-style: italic;
+      opacity: 0.4;
     }
   }
 `;

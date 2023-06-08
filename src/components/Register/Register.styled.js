@@ -10,22 +10,29 @@ export const Wrapper = styled.section`
 
 export const StyledForm = styled.form`
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 4px;
   width: 300px;
 
   input {
-    display: flex;
     width: 210px;
     flex-direction: column;
     border: 1px solid silver;
     border-radius: 4px;
+    padding: 4px;
 
     &:hover,
     &:focus {
       outline: none;
       border: 1px solid skyblue;
+    }
+
+    &::placeholder {
+      padding-left: 4px;
+      font-style: italic;
+      opacity: 0.4;
     }
   }
 `;

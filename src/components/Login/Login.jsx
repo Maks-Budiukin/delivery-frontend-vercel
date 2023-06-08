@@ -36,6 +36,7 @@ export const Login = () => {
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor={emailInpudId}>Email </label>
           <input
+            placeholder="email@gmail.com"
             type="email"
             name="email"
             id={emailInpudId}

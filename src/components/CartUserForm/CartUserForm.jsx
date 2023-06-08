@@ -68,10 +68,11 @@ export const CartUserForm = () => {
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor={nameInpudId}>Name </label>
       <input
+            placeholder="Jimmy Hendrix"
             type="text"
             name="name"
             id={nameInpudId}
-            title="Name may contain any symbols and be maximum 16 characters long."
+            title="Name may contain any symbols and be maximum 16 characters long"
             value={name}
             onChange={onInputChange}
             maxLength={16}
@@ -79,6 +80,7 @@ export const CartUserForm = () => {
               />
       <label htmlFor={phoneInpudId}>Number </label>    
       <input
+            placeholder="+380991112233"
             type="tel"
             name="number"
             id={phoneInpudId}
@@ -92,20 +94,24 @@ export const CartUserForm = () => {
               />
       <label htmlFor={emailInpudId}>Email </label>
       <input
+        placeholder="email@gmail.com"
         type="email"
         name="email"
         id={emailInpudId}
         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         value={email}
         onChange={onInputChange}
+        title="Your email address"
         required
           />
-      <label htmlFor={addressInpudId}>Address </label>
-      <input
+      <label htmlFor={addressInpudId}>Delivery address </label>
+      <textarea
+            rows="4"
+            placeholder="London, Baker's Street, 1"
             type="text"
             name="address"
             id={addressInpudId}
-            title="Your address for deliveries."
+            title="Your address for deliveries"
             value={address}
             onChange={onInputChange}
             
