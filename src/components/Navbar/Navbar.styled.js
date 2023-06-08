@@ -51,6 +51,7 @@ export const StyledButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   border: 1px solid skyblue;
+  cursor: pointer;
 
   transition-property: color, background-color, border;
   transition-duration: 250ms;
@@ -114,6 +115,7 @@ export const StyledClearButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   border: 1px solid tomato;
+  cursor: pointer;
 
   transition-property: color, background-color, border;
   transition-duration: 250ms;

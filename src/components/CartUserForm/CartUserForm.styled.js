@@ -61,6 +61,7 @@ export const StyledButton = styled.button`
   border-radius: 4px;
   color: skyblue;
   font-weight: bold;
+  cursor: pointer;
 
   transition-property: color, background-color, border;
   transition-duration: 250ms;
@@ -112,4 +113,10 @@ export const ToastButton = styled.button`
     color: #fff;
     border: 1px solid skyblue;
   }
+`;
+
+export const TotalSubmit = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 `;

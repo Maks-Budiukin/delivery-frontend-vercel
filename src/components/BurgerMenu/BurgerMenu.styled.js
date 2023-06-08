@@ -45,6 +45,7 @@ export const StyledButton = styled.button`
   text-align: center;
   font-size: 14px;
   font-weight: 700;
+  cursor: pointer;
 
   transition-property: color, background-color;
   transition-duration: 250ms;

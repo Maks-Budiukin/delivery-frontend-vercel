@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { ClearCartThunk, createOrderThunk } from "redux/products/products.thunk";
 import { useNavigate } from "react-router-dom";
 
-import {StyledForm, StyledButton, TotalPrice, ToastContainer, ToastButton} from "./CartUserForm.styled"
+import {StyledForm, StyledButton, TotalPrice, ToastContainer, ToastButton, TotalSubmit} from "./CartUserForm.styled"
 
 export const CartUserForm = () => {
     const cart = useSelector(state => state.products.cart)
@@ -116,7 +116,9 @@ export const CartUserForm = () => {
             onChange={onInputChange}
             
               />
-      <TotalPrice>${total}</TotalPrice>
-      <StyledButton type="submit">Submit Order</StyledButton>
+      <TotalSubmit>
+        <TotalPrice>${total}</TotalPrice>
+        <StyledButton type="submit">Submit Order</StyledButton>
+      </TotalSubmit>
     </StyledForm>)
 }

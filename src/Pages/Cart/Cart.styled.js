@@ -4,9 +4,12 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
-  padding-top: 36px;
+  padding: 36px 16px;
   flex-wrap: wrap;
   gap: 40px;
+  @media screen and (max-width: 890px) {
+    gap: 80px;
+  }
 `;
 
 export const StyledButton = styled(NavLink)`
