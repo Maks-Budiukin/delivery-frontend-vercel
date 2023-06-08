@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
-  padding: 24px 0;
+  padding: 94px 16px;
   text-align: center;
 `;
 

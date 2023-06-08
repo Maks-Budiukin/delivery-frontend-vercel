@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const MobMenuWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 70px;
   left: 0;
   padding: 8px;
   width: (100vw - 8px);
 
   background-color: #fff;
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 
   display: flex;
   gap: 4px;

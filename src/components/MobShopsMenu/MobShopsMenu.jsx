@@ -12,9 +12,17 @@ export const MobShopsMenu = ({showMobMenu}) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getShopsThunk())        
+        dispatch(getShopsThunk()) 
+        
+        document.body.style.overflow = "hidden";
+        return () => (document.body.style.overflow = "scroll");
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dispatch])
+
+//     useEffect(() => {
+//     document.body.style.overflow = "hidden";
+//     return () => (document.body.style.overflow = "scroll");
+// });
 
     return (<MobMenuWrapper onClick={showMobMenu}>
                 {shops.map(item => {

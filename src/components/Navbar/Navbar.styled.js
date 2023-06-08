@@ -1,10 +1,14 @@
 import { NavLink } from "react-router-dom";
+import { ReactComponent as ClearCartIcon } from "../../clear-cart.svg";
 import styled from "styled-components";
 
 export const StyledSection = styled.section`
-  position: relative;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
   border-bottom: 1px solid #c0c0c03e;
   color: #c0c0c03e;
+  background-color: #f4f4f4;
 `;
 
 export const StyledLink = styled(NavLink)`
@@ -160,4 +164,24 @@ export const BurgerMenuWrapper = styled.div`
 export const MobileBurgerMenuWrapper = styled.div`
   width: 36px;
   position: relative;
+`;
+
+export const ClearIcon = styled(ClearCartIcon)`
+  position: absolute;
+  top: 80px;
+  right: 16px;
+  width: 42px;
+  /* fill: red; */
+  fill: #eea7a7;
+  cursor: pointer;
+  /* stroke: #ffe6f700; */
+
+  transition-property: stroke, fill;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+
+  &:hover {
+    /* stroke: #ffe6f799; */
+    fill: red;
+  }
 `;

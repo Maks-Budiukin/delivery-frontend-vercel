@@ -62,7 +62,7 @@ export const BurgerMenu = () => {
     fill: '#373a47'
   },
   bmItemList: {
-    background: '#eaeaea',
+    background: '#f4f4f4',
     width: '160px'
   },
   bmOverlay: {

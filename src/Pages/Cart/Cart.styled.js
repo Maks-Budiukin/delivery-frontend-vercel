@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
-  padding: 36px 16px;
+  padding: 106px 16px 36px 16px;
   flex-wrap: wrap;
   gap: 40px;
   @media screen and (max-width: 890px) {

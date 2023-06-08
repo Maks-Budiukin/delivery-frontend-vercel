@@ -13,7 +13,7 @@ export const Header = styled.h1`
 export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
-  padding: 24px 0;
+  padding: 70px 16px 36px 16px;
   text-align: center;
 `;
 
