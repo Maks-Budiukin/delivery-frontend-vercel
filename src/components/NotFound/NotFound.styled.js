@@ -5,7 +5,7 @@ export const StyledNotFound = styled.div`
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  background: url("https://timeweb.com/ru/community/article/67/67d62d1e0bc27de113cc0e25239705e2.png");
+  background: url("/404.png");
   background-position: center;
   background-size: cover;
   max-width: 600px;

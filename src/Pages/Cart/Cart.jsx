@@ -12,7 +12,7 @@ export const Cart = () => {
             {cart.length > 0
             ? <><CartUserForm /> <CartList /> </>
                 : <div style={{textAlign: "center"}}>
-                    <img src="https://www.pg-chips.co.uk/images/empty-cart.png" alt="Your Cart is empty"></img>
+                    <img src="/empty-cart.png" alt="Your Cart is empty"></img>
                     <div style={{ fontSize: "24px", fontWeight: "bold" }}>Your Cart is empty</div>
                     <div style={{ color: "silver" }}>Looks like you haven't added anything to your Cart yet.</div>
                     <StyledButton to={"/"}>Go shopping!</StyledButton>

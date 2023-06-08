@@ -41,7 +41,7 @@ export const Navbar = () => {
     return (<><StyledSection>
         <NavBar>
             {isDesktop && (<><LogoLink to={activeShop ? `/${activeShop}` : "/"}>
-                <Logo src="./logo.jpg"></Logo>
+                <Logo src="/logo.jpg"></Logo>
             </LogoLink>
 
             <NavList>
@@ -57,7 +57,7 @@ export const Navbar = () => {
                 }
                 </AuthBlock></>)}
             {isTablet && <><LogoLink to={activeShop ? `/${activeShop}` : "/"}>
-                <Logo src="./logo.jpg"></Logo>
+                <Logo src="/logo.jpg"></Logo>
         </LogoLink>
         <div><BurgerMenu></BurgerMenu></div></>}
         
