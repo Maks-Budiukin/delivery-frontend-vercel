@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
-axios.defaults.baseURL = "https://delivery-backend-orcin.vercel.app/api";
+axios.defaults.baseURL = "https://cv-delivery-backend.vercel.app/api";
 
 const token = {
   set(token) {

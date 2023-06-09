@@ -2,52 +2,76 @@ import { nanoid } from "nanoid";
 import { useState } from "react";
 import { loginThunk, regThunk } from "redux/auth/auth.thunk";
 import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
 
-import { Wrapper, StyledForm, LinkBlock, LinkLabel, StyledLink, StyledButton, Header } from "./Register.styled";
+import {
+  Wrapper,
+  StyledForm,
+  LinkBlock,
+  LinkLabel,
+  StyledLink,
+  StyledButton,
+  Header,
+  PhonePrefix,
+  StyledInput,
+  StyledPhoneInput,
+} from "./Register.styled";
 
 export const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [number, setNumber] = useState("");
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("")
-    const [phone, setPhone] = useState("");
+  const nameInpudId = nanoid();
+  const emailInpudId = nanoid();
+  const passwordInpudId = nanoid();
+  const numberInpudId = nanoid();
 
-    const nameInpudId = nanoid();
-    const emailInpudId = nanoid();
-    const passwordInpudId = nanoid();
-    const phoneInpudId = nanoid();
-  
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const onInputChange = (event) => {
+  const onInputChange = (event) => {
     switch (event.target.name) {
-        case "name": setName(event.target.value);
-            break;
-        case "email": setEmail(event.target.value);
-            break;
-        case "password": setPassword(event.target.value);
-            break;
-        case "phone": setPhone(event.target.value);
-            break;
-        default: return;
-        }
-      }
-    
-    const handleSubmit = async (event) => {
-      event.preventDefault();
+      case "name":
+        setName(event.target.value);
+        break;
+      case "email":
+        setEmail(event.target.value);
+        break;
+      case "password":
+        setPassword(event.target.value);
+        break;
+      case "number":
+        setNumber(event.target.value);
+        break;
+      default:
+        return;
+    }
+  };
 
-      const {error} = await dispatch(regThunk({ name, email, password, phone }));
-      !error && dispatch(loginThunk({ email, password }))
-      
-  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const phone = number.replace(/[^0-9]/gi, "");
+    if (phone.length !== 10) {
+      toast.error("Please, enter a valid phone number!");
+      return;
+    }
+
+    const { error } = await dispatch(
+      regThunk({ name, email, password, phone })
+    );
+    !error && dispatch(loginThunk({ phone, password }));
+  };
 
   return (
     <Wrapper>
       <div>
         <Header>Sign UP!</Header>
         <StyledForm onSubmit={handleSubmit}>
+          <PhonePrefix>+38</PhonePrefix>
           <label htmlFor={nameInpudId}>Name </label>
-          <input
+          <StyledInput
             placeholder="Jimmy Hendrix"
             type="text"
             name="name"
@@ -57,10 +81,10 @@ export const Register = () => {
             onChange={onInputChange}
             maxLength={16}
             required
-              />
-            
+          />
+
           <label htmlFor={emailInpudId}>Email </label>
-          <input
+          <StyledInput
             placeholder="email@gmail.com"
             type="email"
             name="email"
@@ -69,23 +93,22 @@ export const Register = () => {
             value={email}
             onChange={onInputChange}
             required
-              />
-            <label htmlFor={phoneInpudId}>Phone </label>    
-          <input
-            placeholder="+380991112233"
+          />
+          <label htmlFor={numberInpudId}>Phone </label>
+          <StyledPhoneInput
+            placeholder="099-111-22-33"
             type="tel"
-            name="phone"
-            id={phoneInpudId}
-            pattern="[+]38([0-9]{10})"
-            title="Phone number must be digits in format +38XXXXXXXXXX (NO DASHES!)"
-            minLength={13}
-            maxLength={13}
-            value={phone}
+            name="number"
+            id={numberInpudId}
+            pattern="([0-9]{10}\-)"
+            title="Phone number must be digits in format [operator code] - [number]. For example: 099-111-22-33"
+            maxLength={15}
+            value={number}
             onChange={onInputChange}
             required
-              />
-          <label htmlFor={passwordInpudId}>Password </label>    
-          <input
+          />
+          <label htmlFor={passwordInpudId}>Password </label>
+          <StyledInput
             type="password"
             name="password"
             id={passwordInpudId}
@@ -94,16 +117,15 @@ export const Register = () => {
             onChange={onInputChange}
             minLength={6}
             required
-                  />
+          />
           <LinkBlock>
             <LinkLabel>Already registered? </LinkLabel>
             <StyledLink to="/login">Log IN!</StyledLink>
           </LinkBlock>
 
           <StyledButton type="submit">Sign Up!</StyledButton>
-
         </StyledForm>
       </div>
-    </Wrapper>)
-}
-
+    </Wrapper>
+  );
+};

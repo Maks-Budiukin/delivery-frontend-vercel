@@ -8,32 +8,70 @@ export const Wrapper = styled.section`
   text-align: center;
 `;
 
+export const PhonePrefix = styled.div`
+  border-right: 1px solid silver;
+  position: absolute;
+  left: 90px;
+  top: 59px;
+  padding-right: 2px;
+  padding-bottom: 3px;
+  font-size: 14px;
+`;
+
 export const StyledForm = styled.form`
+  position: relative;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 4px;
   width: 300px;
+`;
 
-  input {
-    width: 210px;
-    flex-direction: column;
-    border: 1px solid silver;
-    border-radius: 4px;
-    padding: 4px;
+export const StyledInput = styled.input`
+  width: 212px;
+  flex-direction: column;
+  border: 1px solid silver;
+  border-radius: 4px;
+  padding: 4px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
 
-    &:hover,
-    &:focus {
-      outline: none;
-      border: 1px solid skyblue;
-    }
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 1px solid skyblue;
+  }
 
-    &::placeholder {
-      padding-left: 4px;
-      font-style: italic;
-      opacity: 0.4;
-    }
+  &::placeholder {
+    padding-left: 4px;
+    font-style: italic;
+    opacity: 0.4;
+  }
+`;
+
+export const StyledPhoneInput = styled.input`
+  width: 212px;
+  flex-direction: column;
+  border: 1px solid silver;
+  border-radius: 4px;
+  padding: 4px;
+  padding-left: 36px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 1px solid skyblue;
+  }
+
+  &::placeholder {
+    padding-left: 4px;
+    font-style: italic;
+    opacity: 0.4;
   }
 `;
 
