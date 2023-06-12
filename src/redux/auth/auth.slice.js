@@ -67,6 +67,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshThunk.rejected, (state, { payload }) => {
         state.isRefreshing = false;
+        state.token = null;
       })
 
       .addCase(getOrdersThunk.pending, (state) => {
