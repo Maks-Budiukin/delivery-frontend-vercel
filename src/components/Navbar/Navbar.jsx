@@ -10,7 +10,6 @@ import {
   NavBar,
   LogoLink,
   Logo,
-  StyledClearButton,
   AuthBlock,
   BurgerMenuWrapper,
   MobileBurgerMenuWrapper,

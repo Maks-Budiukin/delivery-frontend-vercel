@@ -76,6 +76,7 @@ export const refreshThunk = createAsyncThunk(
       return response.data.user;
     } catch (error) {
       toast.error(error.response.data.message);
+      token.unset();
       return thunkAPI.rejectWithValue(error.message);
     }
   }
